@@ -29,26 +29,25 @@ export class ServiceService {
     }
 
    getHospitals() {
-    return new Promise(resolve=>{
-      this.http.get(this.apiurl+'/hospitals').subscribe(data=>{
-        resolve(data);
-      },err=>{
-        console.log(err);
-
-      });
-     });
+       const url = this.apiurl+'/hospitals';
+       return this.httpDelegateService.getAPI( url);
    }
+
 
    getHospitalByName(name:String) {
-    return new Promise(resolve=>{
-      this.http.get(this.apiurl+'/hospitals/'+name).subscribe(data=>{
-        resolve(data);
-      },err=>{
-        console.log(err);
-
-      });
-     });
+       const url = this.apiurl+'/hospitals/'+name;
+       return this.httpDelegateService.getAPI( url);
    }
+
+    getDoctorsByRange(name:string) {
+        const url = this.apiurl+'/doctors/'+name;
+        return this.httpDelegateService.getAPI( url);
+    }
+
+    getProductDetails(name:String) {
+        const url = this.apiurl+'/product/'+name;
+        return this.httpDelegateService.getAPI( url);
+    }
 
    getDoctors() {
      return new Promise(resolve=>{
@@ -70,27 +69,5 @@ export class ServiceService {
  
        });
       });
-   }
-
-   getDoctorsByRange(name:string) {
-     return new Promise(resolve=>{
-         this.http.get(this.apiurl+'/doctors/'+name).subscribe(data=>{
-         resolve(data);
-       },err=>{
-         console.log(err);
- 
-       });
-      });
-   }
-
-   getProductDetails(name:String) {
-    return new Promise(resolve=>{
-      this.http.get(this.apiurl+'/product/'+name).subscribe(data=>{
-        resolve(data);
-      },err=>{
-        console.log(err);
-
-      });
-     });
    }
   }

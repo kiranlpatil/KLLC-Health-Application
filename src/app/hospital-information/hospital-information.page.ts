@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NavController, ToastController } from '@ionic/angular';
 import { ServiceService } from '../service.service';
 import { LoadingServiceService } from '../loading-service.service';
+import {takeUntil} from "rxjs/operators";
+import {Subject} from "rxjs";
 
 
 @Component({
@@ -13,6 +15,7 @@ import { LoadingServiceService } from '../loading-service.service';
 export class HospitalInformationPage implements OnInit {
   products:any;
   public hospital: any;
+  private ngUnsubscribe = new Subject();
   constructor(public loading: LoadingServiceService,public toastController: ToastController,private route: Router,public navCtrl: NavController, public restProvider: ServiceService,public router:ActivatedRoute) {
   }
 
@@ -36,13 +39,21 @@ export class HospitalInformationPage implements OnInit {
     });
   }
 
-  getHospitalInfo(name: string)
-  {
+  private getHospitalInfo(name: string) {
     this.restProvider.getHospitalByName(name)
-        .then(data=>{
-          this.hospital = data;
-          this.loading.dismiss();
-        });
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe(
+            success => this.getHospitalSuccess(success),
+            error => this.getHospitalError(error)
+        );
+  }
+
+  getHospitalSuccess(success: any) {
+    this.hospital = success;
+    this.loading.dismiss();
+  }
+
+  getHospitalError(err: any) {
   }
 
   booked() {

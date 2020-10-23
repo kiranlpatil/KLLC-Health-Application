@@ -1,5 +1,7 @@
 import {Component, OnInit, ViewChild, Input, Renderer} from '@angular/core';
 import { ServiceService } from '../service.service';
+import {takeUntil} from "rxjs/operators";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-accordion',
@@ -9,6 +11,7 @@ import { ServiceService } from '../service.service';
 export class AccordionComponent implements OnInit {
   accordionExapanded = true;
   products:any;
+  private ngUnsubscribe = new Subject();
   @ViewChild('cc', {static: true}) cardContent: any;
   @Input ('title') title:string;
   
@@ -16,29 +19,38 @@ export class AccordionComponent implements OnInit {
     
    }
 
-  ngOnInit() {
-    this.renderer.setElementStyle(this.cardContent.el, "max-height", "0px");
-     this.renderer.setElementStyle(this.cardContent.el, "padding", "0px 16px");
-     this.getDoctors();
+      ngOnInit() {
+        this.renderer.setElementStyle(this.cardContent.el, "max-height", "0px");
+         this.renderer.setElementStyle(this.cardContent.el, "padding", "0px 16px");
+         this.getDoctors();
 
-  }
-  
-  toggleAccordion() {
-    if (this.accordionExapanded) {
-     this.renderer.setElementStyle(this.cardContent.el, "max-height", "500px");
-     this.renderer.setElementStyle(this.cardContent.el, "padding", "13px 16px");
-    } else {
-     this.renderer.setElementStyle(this.cardContent.el, "max-height", "0px");
-     this.renderer.setElementStyle(this.cardContent.el, "padding", "0px 16px");
+      }
+
+      toggleAccordion() {
+        if (this.accordionExapanded) {
+         this.renderer.setElementStyle(this.cardContent.el, "max-height", "500px");
+         this.renderer.setElementStyle(this.cardContent.el, "padding", "13px 16px");
+        } else {
+         this.renderer.setElementStyle(this.cardContent.el, "max-height", "0px");
+         this.renderer.setElementStyle(this.cardContent.el, "padding", "0px 16px");
+        }
+        this.accordionExapanded = !this.accordionExapanded;
+
+ }
+
+    private getDoctors() {
+        this.restProvider.getDoctorsByRange(this.title)
+            .pipe(takeUntil(this.ngUnsubscribe))
+            .subscribe(
+                success => this.getHospitalSuccess(success),
+                error => this.getHospitalError(error)
+            );
     }
-    this.accordionExapanded = !this.accordionExapanded;
- 
- }
 
- getDoctors() {
-   this.restProvider.getDoctorsByRange(this.title)
-     .then(data=>{
-       this.products=data; 
-     });
- }
+    getHospitalSuccess(success: any) {
+        this.products = success;
+    }
+
+    getHospitalError(err: any) {
+    }
 }

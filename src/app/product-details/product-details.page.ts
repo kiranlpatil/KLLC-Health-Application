@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {ServiceService} from '../service.service';
-import { NavController, ToastController  } from '@ionic/angular';
+import { ToastController  } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { LoadingServiceService } from '../loading-service.service';
+import {takeUntil} from "rxjs/operators";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-product-details',
@@ -12,7 +14,8 @@ import { LoadingServiceService } from '../loading-service.service';
 export class ProductDetailsPage implements OnInit {
   products:any;
   public nodata:string = null
-  constructor(public loading: LoadingServiceService,public toastController: ToastController,public navCtrl: NavController ,public router:ActivatedRoute
+  private ngUnsubscribe = new Subject();
+  constructor(public loading: LoadingServiceService,public toastController: ToastController, public router:ActivatedRoute
     ,public restProvider: ServiceService) {
    }
    async presentToast(message: string) {
@@ -32,22 +35,32 @@ export class ProductDetailsPage implements OnInit {
         return;
       }
       const p_name = paramMap.get('p_name');
-      this.restProvider.getProductDetails(p_name)
-      .then(data=>{
-        this.products=data;
-        if(this.products.length == 0)
-        {
-          this.presentToast(' No Data to display ')
-          this.nodata = "No Data Found"
-          this.loading.dismiss();
-        }
-        else{
-          this.loading.dismiss();
-        }
-      });
-     
+      this.getProductDetails(p_name);
     });
   }
+
+    private getProductDetails(name: string) {
+        this.restProvider.getProductDetails(name)
+            .pipe(takeUntil(this.ngUnsubscribe))
+            .subscribe(
+                success => this.getHospitalSuccess(success),
+                error => this.getHospitalError(error)
+            );
+    }
+
+    getHospitalSuccess(success: any) {
+          this.products=success;
+          if(this.products.length == 0) {
+            this.presentToast(' No Data to display ')
+            this.nodata = "No Data Found"
+            this.loading.dismiss();
+          }
+          this.loading.dismiss();
+
+    }
+
+    getHospitalError(err: any) {
+    }
 
     Ordered() {
       this.presentToast(' Product Ordered ');
