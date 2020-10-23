@@ -53,6 +53,9 @@ You can also test the api by running on the above link which is a testing report
     2. Controllers
 - APIs has been integrated with Swagger.
 
+# Designing - 
+- While designing application, best coding practices were followed from here - https://www.ideas2it.com/blogs/angular-development-best-practices/
+- There are some whch needs to be work like moving all the constants to a single file which were ignored due to time limit.
 
 # Setup - 
 @ Client and server both have same steps
