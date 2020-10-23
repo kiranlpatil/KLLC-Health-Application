@@ -1,0 +1,182 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+    <ion-toolbar>
+        <ion-title><img style="height: 50px" src="assets/HorizontalMedStarLogo.png"></ion-title>
+    </ion-toolbar>
+
+    <!-- <ion-slides pager></ion-slides> -->
+    <ion-slides pager [options]="slideOptions" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+        <ion-slide>
+            <img src="assets/resizedImg2.jpg">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/resizedImg.jpg">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/old-age.png">
+        </ion-slide>
+    </ion-slides>
+
+
+    <ion-card class="adjust2">
+        <ion-searchbar [(ngModel)]="searchText" style="padding-bottom: 0px; all: unset;" placeholder="medicines, doctors, hospitals"></ion-searchbar>
+
+        <ion-card-content class="card-content" style="padding: 0px;">
+
+            <ion-grid style="padding: 0px;">
+                <ion-row class="search_row" *ngFor="let item of searchitem | filter : searchText : 'p_name'" [routerLink]="['/productDetail',item.p_name]">
+                    <ion-col size=1 style="padding: 0px; padding-top: 5px;">
+                        <img src={{item.src}} style="width: 21.66; height: 18.39;">
+                    </ion-col>
+                    <ion-col size=11>
+                        {{item.p_name}}
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <div class="break"></div>
+            <ion-grid style="padding: 0px;">
+                <ion-row class="search_row" *ngFor="let item of searchcompany | filter : searchText : 'p_name'" [routerLink]="['/doctors']">
+                    <ion-col size=1 style="padding: 0px; padding-top: 5px;">
+                        <img src='/assets/doctor.jpg' style="width: 21.66; height: 18.39;">
+                    </ion-col>
+                    <ion-col size=11>
+
+                        {{item.p_name}}
+
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+
+        </ion-card-content>
+    </ion-card>
+
+    <div>
+        <p>
+            <b>
+      Hi {{ transform(first_name) }}<br>
+      How can we help you?
+    </b>
+        </p>
+    </div>
+    <ion-grid>
+        <ion-row>
+            <ion-col size=4>
+                <ion-card class="cards1" (click)="gotoProducts()">
+                    <img src="assets/products icon.svg">
+                    <div class="p1">Medicines</div>
+                </ion-card>
+            </ion-col>
+            <ion-col size=4>
+                <ion-card class="cards1" (click)="gotoPricelist()">
+                    <img src="assets/price list icon.svg">
+                    <div class="p1">Doctors</div>
+                </ion-card>
+            </ion-col>
+            <ion-col size=4>
+                <ion-card class="cards1" (click)="goToHospitals()">
+                    <img src="assets/distributors icon.svg">
+                    <div class="p1">Hospitals</div>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size=4>
+                <ion-card class="cards1">
+                    <img src="assets/distributors icon.svg">
+                    <div class="p1">Blood Checkup</div>
+                </ion-card>
+            </ion-col>
+            <ion-col size=4>
+                <ion-card class="cards1">
+                    <img src="assets/maintenance & troubleshooting icon.svg">
+                    <div class="p1">Personal Home Assistance</div>
+                </ion-card>
+            </ion-col>
+            <ion-col size=4>
+                <ion-card class="cards1">
+                    <img src="assets/contact us icon.svg">
+                    <div class="p1">Book Health Checkup</div>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <p>
+        <b>What's new</b>
+    </p>
+    <ion-card>
+        <ion-row>
+            <ion-card-header style="padding-bottom: 0%;">
+                <ion-card-title style="font-weight: bolder; font-size:medium;"><u>International imports for rare medicines has been started...</u></ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                October 21, 2020
+            </ion-card-content>
+        </ion-row>
+        <ion-row>
+            <ion-card-header style="padding-bottom: 0%;">
+                <ion-card-title style="font-weight: bold;  font-size:medium;"><u>One-day free home assistance for new users</u>
+                </ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                August 15, 2020
+            </ion-card-content>
+        </ion-row>
+        <ion-row>
+            <ion-card-header style="padding-bottom: 0%;">
+                <ion-card-title style="font-weight: bold; font-size:medium;"><u>An emergency vehicle with all the equipments and doctors for...</u></ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                August 07, 2020
+            </ion-card-content>
+        </ion-row>
+
+    </ion-card>
+
+
+    <div class="head2">
+        <p>
+            <b slot="start">Favourite Items
+            <ion-button fill="outline" slot="end" style="padding: 1px 12px 0px 0px" class="ion-float-right"  routerLink="/all-product-types">Show All</ion-button></b>
+        </p>
+
+        <div class="items">
+            <ion-grid>
+                <ion-row>
+                    <ion-slides>
+                        <ion-slide>
+                            <ion-col size=6>
+                                <ion-card [routerLink]="['/productDetail','Remdesivir']">
+                                    <img class="fav-dashboard" src="assets/remid.png">
+                                    <p class="name">Remdesivir</p>
+                                    <p class="price">$120</p>
+                                </ion-card>
+                            </ion-col>
+                            <ion-col size=6>
+                                <ion-card [routerLink]="['/productDetail','Hydroxychloroquine']">
+                                    <img class="fav-dashboard" src="assets/HCQ.jpeg">
+                                    <p class="name"> HCQ </p>
+                                    <p class="price">$400</p>
+                                </ion-card>
+                            </ion-col>
+                        </ion-slide>
+                    </ion-slides>
+                </ion-row>
+            </ion-grid>
+        </div>
+
+    </div>
+
+    <p>
+        <b style="font-weight:600">Want to know more?</b><br/>
+    </p>
+    <h6 style="margin-left: 15px;">Visit <a style="font-weight:bolder" href="https://www.who.int/">https://www.who.int/</a></h6>
+
+</ion-content>

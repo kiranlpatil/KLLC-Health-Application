@@ -1,0 +1,30 @@
+<ion-card>
+    <ion-card-header (click)="toggleAccordion()" class="card-header">
+        {{title}}
+        <ion-icon class="ion-float-right" name="arrow-up" *ngIf="!accordionExapanded"></ion-icon>
+        <ion-icon class="ion-float-right" name="arrow-down" *ngIf="accordionExapanded"></ion-icon>
+    </ion-card-header>
+    <ion-card-content #cc class="card-content">
+
+        <ion-list *ngFor="let product of products">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="8">
+                        <p>{{product.p_name}}</p>
+                    </ion-col>
+                    <ion-col size="4">
+                        <p style="text-align: right;">{{product.p_price}} $.</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <div class="text1">
+                        <ion-label style="color: #4c8dff"> MBBS :</ion-label> {{product.p_mbbs}}
+                        <ion-label style="color: #4c8dff"> MD :</ion-label> {{product.p_md}}<br/>
+                        <ion-label style="color: #e74c3c"> Contact No. :</ion-label> {{product.p_contact}}
+                    </div>
+                </ion-row>
+            </ion-grid>
+        </ion-list>
+    </ion-card-content>
+
+</ion-card>

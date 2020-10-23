@@ -1,0 +1,34 @@
+select {
+    width: 100%;
+}
+
+p {
+    margin-left: 15px;
+    font-size: 22px;
+}
+
+//ion-header {
+//    img {
+//        width: auto;
+//        align-self: auto;
+//        height: fit-content;
+//    }
+//    ion-icon {
+//        height: 30px;
+//        width: 30px;
+//    }
+//}
+
+ion-content {
+    --background: rgb(241, 240, 240);
+}
+
+ion-card {
+    --background: white;
+    border-radius: 8px;
+    p {
+        font-size: 15px;
+        color: black;
+        font-weight: bold;
+    }
+}

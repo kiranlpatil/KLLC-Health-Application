@@ -1,0 +1,52 @@
+{
+  "name": "kratin_health_server",
+  "version": "1.0.1",
+  "description": "Health management NodeJs Application",
+  "scripts": {
+    "start": "ts-node ./server/src/server.ts",
+    "ng": "ng",
+    "dev-client": "ng serve -o",
+    "build-client": "ng build",
+    "test-client": "ng test",
+    "lint-client": "ng lint",
+    "e2e-client": "ng e2e",
+    "build-server": "cd server && tsc",
+    "dev-server": "ts-node ./server/src/server.ts",
+    "start-server": "nodemon ./server/dist/server.js",
+    "prod-server": "npm run build-server && npm run start-server"
+  },
+  "author": "KiranPatil",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "@types/express": "^4.16.0",
+    "auth0-js": "^9.8.2",
+    "body-parser": "^1.18.3",
+    "bootstrap": "3.3.7",
+    "core-js": "^2.5.4",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.9",
+    "nodemon": "^1.18.5",
+    "rxjs": "~6.2.0",
+    "swagger-jsdoc": "^3.5.0",
+    "swagger-ui-express": "^4.1.3",
+    "zone.js": "~0.8.26",
+    "tslint": "~5.11.0",
+    "ts-node": "~7.0.0",
+    "typescript": "~2.9.2"
+  },
+  "devDependencies": {
+    "@types/jasmine": "~2.8.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "codelyzer": "~4.3.0",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~3.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~1.1.2",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "protractor": "~5.4.0"
+  }
+}

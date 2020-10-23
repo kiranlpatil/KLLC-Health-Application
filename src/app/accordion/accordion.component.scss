@@ -1,0 +1,35 @@
+app-accordion {
+    .card-header {
+        background-color: primary;
+        color: #fff;
+    }
+    .card-content {
+        padding: 0px 16px;
+        max-height: 0px;
+    }
+}
+
+ion-card {
+    --background: white;
+    ion-card-header {
+        border-bottom: 1px solid black;
+        color: black;
+        font-weight: bold;
+    }
+    p {
+        font-size: 15px;
+        color: black;
+        font-weight: bold;
+    }
+    ion-list {
+        border-bottom: 0.5px solid rgb(180, 178, 178);
+    }
+}
+
+.text1 {
+    font-weight: bold;
+    ion-label {
+        font-weight: normal;
+        margin-left: 5px;
+    }
+}

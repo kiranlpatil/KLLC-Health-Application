@@ -1,0 +1,25 @@
+ion-content {
+    --background: rgb(241, 240, 240);
+}
+
+p {
+    margin-left: 20px;
+    font-size: 22px;
+}
+
+ion-card {
+    margin-top: -5px;
+    --background: white;
+    border-radius: 8px;
+    p {
+        color: black;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+    img {
+        height: 130px;
+        width: 100%;
+        margin-left: auto;
+        margin-top: auto;
+    }
+}

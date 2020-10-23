@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="dashboard"></ion-back-button>
+        </ion-buttons>
+        <ion-title><img src="assets/HorizontalMedStarLogo.png" class="top"></ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="products">
+    <ion-grid>
+        <ion-row>
+            <img src={{products.src}}>
+        </ion-row>
+        <ion-row>
+            <div>
+                <ion-row>
+                    <div>
+                        <h4 style="margin-left: 10px;"><b>{{products.p_name}}</b>
+                        </h4>
+                        <p>{{products.p_price}}</p>
+                        <img id="img3" src="/assets/med.jpg">
+
+                        <div style="color:gray">
+                            <p>Manufactured Date: <b>{{products.created}}</b></p>
+                            <p>Expiry Date: <b> {{products.expiry}}</b></p>
+                            <p>Quantity: <b> {{products.quantity}}</b></p>
+                            <p>Type: <b>{{products.name}}</b></p>
+                        </div>
+                    </div>
+                </ion-row>
+                <ion-row>
+                </ion-row>
+            </div>
+        </ion-row>
+        <ion-item-divider>
+        </ion-item-divider>
+        <br/>
+        <ion-card class="card">
+            <ion-item href="/doctors" class="activated">
+                <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+                <ion-label>Contact Doctors</ion-label>
+            </ion-item>
+        </ion-card>
+        <ion-card class="card">
+            <ion-item class="activated">
+                <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+                <ion-label>Report Query</ion-label>
+            </ion-item>
+        </ion-card>
+
+    </ion-grid>
+
+    <br/><br/>
+    <button class="button button-full customBtn" (click)="Ordered()">
+        Order
+ </button>
+</ion-content>

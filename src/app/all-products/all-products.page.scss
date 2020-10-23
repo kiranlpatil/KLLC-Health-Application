@@ -1,0 +1,48 @@
+ion-content {
+    --background: rgb(250, 250, 250);
+}
+
+p {
+    margin-left: 15px;
+    font-size: 22px;
+}
+
+.card {
+    border-radius: 8px;
+    p {
+        font-size: 14px;
+    }
+    h6 {
+        color: black;
+        margin-left: 15px;
+        ;
+    }
+}
+
+// .adjust2 {
+//     border-radius: 5px;
+//     margin-left: 20px;
+//     margin-right: 20px;
+//     margin-top: -4vmin;
+//     z-index: 1;
+// }
+// .break {
+//     width: 100%;
+//     height: 1px;
+//     background-color: #ddd;
+// }
+// .search_row {
+//     padding-left: 20px;
+//     padding-top: 5px;
+//     padding-bottom: 5px;
+// }
+.content {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    max-height: fit-content;
+    max-width: auto;
+    margin-left: 0px;
+    ion-item {
+        font-size: 14px;
+    }
+}

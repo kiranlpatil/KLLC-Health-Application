@@ -1,0 +1,13 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="dashboard"></ion-back-button>
+        </ion-buttons>
+        <ion-title><img src="assets/HorizontalMedStarLogo.png" id="img2"></ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <p><b>Doctors</b></p>
+    <app-accordion *ngFor="let p_type of productTypes;" [title]="p_type.range"></app-accordion>
+</ion-content>

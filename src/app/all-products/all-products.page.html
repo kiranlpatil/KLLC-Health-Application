@@ -1,0 +1,53 @@
+<ion-header>
+    <div *ngIf="!showSearchBar">
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="products"></ion-back-button>
+            </ion-buttons>
+            <ion-title><img src="assets/HorizontalMedStarLogo.png"></ion-title>
+
+            <ion-button slot="end" (click)="onclick($event)" fill="clear">
+                <ion-icon slot="icon-only" size="large" name="search"></ion-icon>
+            </ion-button>
+            <ion-searchbar *ngIf="showSearchBar" (ionChange)="getItems($event)" (ionFocus)="getItems($event)" (ionInput)="getItems($event)">
+            </ion-searchbar>
+
+        </ion-toolbar>
+    </div>
+    <div *ngIf="showSearchBar">
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="products"></ion-back-button>
+            </ion-buttons>
+            <ion-searchbar *ngIf="showSearchBar" (ionChange)="getItems($event)" (ionFocus)="getItems($event)" (ionInput)="getItems($event)">
+            </ion-searchbar>
+
+        </ion-toolbar>
+
+    </div>
+</ion-header>
+
+<ion-content class="content">
+
+    <p><b>All Products</b></p>
+    <div *ngIf="showSearchBar">
+        <div class="card">
+            <ion-card [routerLink]="['/productDetail',item.p_name]" *ngFor="let item of searchproduct">
+                <h6>{{item.p_name}}</h6>
+                <p>Quantity : {{item.quantity}}</p>
+            </ion-card>
+        </div>
+    </div>
+
+
+
+    <div *ngIf="!showSearchBar">
+
+        <div class="card">
+            <ion-card [routerLink]="['/productDetail',product.p_name]" *ngFor="let product of products">
+                <h6>{{product.p_name}}</h6>
+                <p>Quantity : {{product.quantity}}</p>
+            </ion-card>
+        </div>
+    </div>
+</ion-content>

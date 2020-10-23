@@ -1,0 +1,46 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+    <div class="flb">
+        <div class="Aligner-item Aligner-item--top"></div>
+        <img src="assets/splash2.jpg">
+        <div class="Aligner-item Aligner-item--bottom"></div>
+    </div>
+</div>
+
+<ion-content>
+    <img class="home-logo" src="assets/senior-citizen-care-logo.jpg">
+    <form [formGroup]="form" (submit)="onSubmit()">
+        <ion-grid padding=20px>
+            <ion-row>
+                <ion-col>
+                    <div>
+                        <ion-label color="primary" floating>Full Name</ion-label>
+                        <ion-input [formControl]="form.controls['name']"></ion-input>
+                        <p *ngIf="form.controls['name'].errors && form.controls['name'].dirty" class="danger" style="color: #e74c3c; font-style: italic">Name is not valid.</p>
+                    </div>
+                    <div>
+                        <ion-label color="primary" floating>Email</ion-label>
+                        <ion-input [formControl]="form.controls['email']"></ion-input>
+                        <p *ngIf="form.controls['email'].errors && form.controls['email'].dirty" class="danger" style="color: #e74c3c; font-style: italic">Email is not valid.</p>
+                    </div>
+                    <div>
+                        <ion-label color="primary" floating>Phone Number</ion-label>
+                        <ion-input [formControl]="form.controls['phoneNo']"></ion-input>
+                        <p *ngIf="form.controls['phoneNo'].errors && form.controls['phoneNo'].dirty" class="danger" style="color: #e74c3c; font-style: italic">Phone number is not valid.</p>
+                    </div>
+                    <div>
+                        <ion-label color="primary" floating>Address</ion-label>
+                        <ion-input [formControl]="form.controls['address']"></ion-input>
+                        <p *ngIf="form.controls['address'].errors && form.controls['address'].dirty" class="danger" style="color: #e74c3c; font-style: italic">Address is not valid.</p>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-list padding>
+            <div>
+                <ion-button color="white" [routerLink]="['/dashboard']" style="color: rgb(6, 6, 117);">Skip</ion-button>
+                <ion-button type="submit" [disabled]="form.invalid" color="primary">Let's Start</ion-button>
+            </div>
+        </ion-list>
+    </form>
+</ion-content>

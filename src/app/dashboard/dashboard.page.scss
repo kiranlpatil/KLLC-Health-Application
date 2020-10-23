@@ -1,0 +1,104 @@
+   ion-content {
+       --background: rgb(250, 250, 250);
+       img {
+           width: 100%;
+           height: 100%;
+       }
+   }
+   
+   .cards1 {
+       height: 95px;
+       width: 100%;
+       align-self: auto;
+       margin: auto;
+       --background: white;
+       font: left;
+       text-align: center;
+       border-radius: 10px;
+       img {
+           height: 40%;
+           width: 100%;
+           align-self: auto;
+           margin-top: 10%;
+       }
+       .p1 {
+           font-size: 14px;
+           text-align: center;
+           color: black;
+           margin-top: 10px;
+       }
+   }
+   
+   p {
+       padding-left: 15px;
+       font-size: 22px;
+   }
+   
+   ion-grid {
+       padding: 0px;
+   }
+   
+   ion-button {
+       margin-right: auto;
+       padding-top: 0px;
+   }
+   
+   .adjust2 {
+       border-radius: 5px;
+       margin-left: 20px;
+       margin-right: 20px;
+       margin-top: -4vmin;
+       z-index: 1;
+   }
+
+   .break {
+       width: 100%;
+       height: 1px;
+       background-color: #ddd;
+   }
+   
+   .search_row {
+       padding-left: 20px;
+       padding-top: 5px;
+       padding-bottom: 5px;
+   }
+   
+   .card-content {
+       padding-top: 0px;
+       padding-bottom: 0px;
+       max-height: fit-content;
+       margin-left: 0px;
+       ion-item {
+           font-size: 14px;
+       }
+   }
+   
+   .items {
+       //margin-top: 10px;
+       ion-grid {
+           ion-row {
+               padding-left: 0px;
+               padding-right: 0px;
+               padding: 0px;
+               ion-col {
+                   padding: 10px;
+               }
+               ion-card {
+                   padding: 0px;
+                   padding-right: 0px;
+                   margin: 0px;
+                   p {
+                       text-align: left;
+                   }
+               }
+           }
+       }
+   }
+   
+   .head2 {
+       margin-top: 30px;
+   }
+
+   .fav-dashboard {
+     padding-top: 10px;
+   }

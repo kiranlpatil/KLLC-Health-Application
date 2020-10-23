@@ -1,0 +1,104 @@
+#custom-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100000;
+    width: 100%;
+    background-color: #002a3e;
+}
+
+.flb {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    animation: pulse 1s linear forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Aligner-item {
+    max-width: 50%;
+}
+
+.Aligner-item--top {
+    align-self: flex-start;
+}
+
+.Aligner-item--bottom {
+    align-self: flex-end;
+}
+
+#custom-overlay img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    animation: animation 3100ms linear infinite both;
+    animation-delay: 1s;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+form {
+    margin-top: 10px;
+    height: auto;
+    width: 90%;
+    margin-left: 20px;
+}
+
+#container {
+    padding: 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+ion-label {
+    font-size: 14px;
+    color: rgb(138, 135, 135);
+}
+
+ion-input,
+ion-select {
+    border: solid 1px rgb(207, 203, 203);
+    width: 100%;
+    border-radius: 7px;
+    padding-top: 5px;
+    margin-bottom: 8px;
+}
+
+ion-input:hover,
+ion-select:hover {
+    border: solid 1px black;
+}
+
+ion-button {
+    display: inline-block;
+    margin: 5px;
+    margin-left: 20px;
+    width: 40%;
+}
+
+ion-button:hover {
+    border: solid 1px rgb(6, 6, 117);
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.home-logo {
+    width: 200px
+}

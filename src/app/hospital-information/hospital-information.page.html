@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="dashboard"></ion-back-button>
+        </ion-buttons>
+        <ion-title><img src="assets/HorizontalMedStarLogo.png" class="top"></ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor="let hospital of hospital">
+    <ion-grid>
+        <ion-row>
+            <img src={{hospital.src}}>
+        </ion-row>
+        <ion-row>
+            <div>
+                <ion-row>
+                    <div>
+                        <h4 style="margin-left: 10px;"><b>{{hospital.name}}</b>
+                        </h4>
+                        <p style="color: #4c8dff">Address <b> {{hospital.address}}</b></p>
+
+                        <div style="color:gray">
+                            <p>Number of doctors : <b>{{hospital.doctors}}</b></p>
+                            <p>Emergency Ward : <b> {{hospital.emergency}}</b></p>
+                            <p>Contact : <b> {{hospital.contact}}</b></p>
+                        </div>
+                    </div>
+                </ion-row>
+                <ion-row>
+                </ion-row>
+            </div>
+        </ion-row>
+
+    </ion-grid>
+    <button class="button button-full customBtn" (click)="booked()">
+        Book appointment
+    </button>
+</ion-content>

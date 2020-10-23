@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="dashboard"></ion-back-button>
+        </ion-buttons>
+        <ion-title><img src="assets/HorizontalMedStarLogo.png" id="img2"></ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <p><b>Hospitals</b></p>
+    <ion-grid>
+        <ion-row>
+            <ion-col *ngFor="let comp of company" size="6">
+                <ion-card [routerLink]="['/hospital-info',comp.name]">
+                    <img src={{comp.src}}>
+                    <p>{{comp.name}}</p>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
